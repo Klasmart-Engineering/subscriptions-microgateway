@@ -1,0 +1,24 @@
+{
+    "endpoint": "/example/{id}",
+    "method": "GET",
+    "output_encoding": "json",
+    "backend": [
+        {
+            "method": "GET",
+            "host": ["https://jsonplaceholder.typicode.com"],
+            "url_pattern": "/users/{id}"
+        }
+    ]
+},
+{
+    "endpoint": "/example",
+    "method": "POST",
+    "output_encoding": "json",
+    "backend": [
+        {
+            "method": "POST",
+            "host": ["https://jsonplaceholder.typicode.com"],
+            "url_pattern": "/users"
+        }
+    ]
+}

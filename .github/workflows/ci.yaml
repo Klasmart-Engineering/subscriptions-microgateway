@@ -1,0 +1,23 @@
+name: Validate & build microgateway image
+
+on:
+  push:
+
+permissions:
+  id-token: write
+  contents: read # This is required for actions/checkout
+  packages: write
+
+jobs:
+  test-configuration:
+    name: Test the KrakenD configuration
+    uses: KL-Engineering/central-microgateway-configuration/.github/workflows/validate-configuration.yaml@main
+    secrets:
+      github-repo-token: ${{ secrets.GATEWAY_CONFIG_SYNC_BOT }}
+
+  build-image:
+    name: Build and push image
+    needs: test-configuration
+    uses: KL-Engineering/central-microgateway-configuration/.github/workflows/build-and-push-image.yaml@main
+    secrets:
+      github-repo-token: ${{ secrets.GATEWAY_CONFIG_SYNC_BOT }}
