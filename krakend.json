@@ -32,7 +32,7 @@
   "timeout": "3000ms",
   "cache_ttl": "300s",
   "output_encoding": "json",
-  "name": "<product name>-microgateway",
+  "name": "subscriptions-microgateway",
   "port": 8080,
   "endpoints": [
     {{ template "example.tmpl" . }}
