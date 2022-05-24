@@ -1,4 +1,4 @@
-FROM ghcr.io/KL-Engineering/kl-krakend:0.0.2
+FROM ghcr.io/kl-engineering/kl-krakend:0.0.2
 
 USER root
 
