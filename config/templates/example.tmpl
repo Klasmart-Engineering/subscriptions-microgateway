@@ -21,4 +21,108 @@
             "url_pattern": "/users"
         }
     ]
+},
+{
+  "endpoint": "/{accountID}/usage",
+  "method": "GET",
+  "headers_to_pass": ["Content-Length"],
+  "backend": [
+    {
+      "host": ["http://stubbed.response"],
+      "url_pattern": ""
+    }
+  ],
+  "extra_config": {
+    "github.com/devopsfaith/krakend/proxy": {
+      "static": {
+        "strategy": "always",
+        "data": {
+                  "types": [
+                    {
+                      "typeName": "API Requests",
+                      "displayName": "Content API",
+                      "from": "1651406442",
+                      "to": "1653998462",
+                      "usageAmount": 6578,
+                      "validUsage": true
+                    },
+                    {
+                      "typeName": "API Requests",
+                      "displayName": "Web Portal",
+                      "from": "1651406442",
+                      "to": "1653998462",
+                      "usageAmount": 74,
+                      "validUsage": false
+                    }
+                  ]
+                }
+      }
+    }
+  }
+},
+{
+  "endpoint": "/{accountID}/activate",
+  "method": "PUT",
+  "headers_to_pass": ["Content-Length"],
+  "backend": [
+    {
+      "host": ["http://stubbed.response"],
+      "url_pattern": ""
+    }
+  ],
+  "extra_config": {
+    "github.com/devopsfaith/krakend/proxy": {
+      "static": {
+        "strategy": "always",
+        "data": {
+                  "Details": "Subscription successfully activated."
+                }
+      }
+    }
+  }
+},
+{
+  "endpoint": "/{accountID}/deactivate",
+  "method": "PUT",
+  "headers_to_pass": ["Content-Length"],
+  "backend": [
+    {
+      "host": ["http://stubbed.response"],
+      "url_pattern": ""
+    }
+  ],
+  "extra_config": {
+    "github.com/devopsfaith/krakend/proxy": {
+      "static": {
+        "strategy": "always",
+        "data": {
+                  "Details": "Subscription successfully deactivated."
+                }
+      }
+    }
+  }
+},
+{
+  "endpoint": "/{accountID}/summary",
+  "method": "PUT",
+  "headers_to_pass": ["Content-Length"],
+  "backend": [
+    {
+      "host": ["http://stubbed.response"],
+      "url_pattern": ""
+    }
+  ],
+  "extra_config": {
+    "github.com/devopsfaith/krakend/proxy": {
+      "static": {
+        "strategy": "always",
+        "data": {
+                  "state": "Active",
+                  "subscriptionID": "4129efa2-4436-4e8c-8cf9-032d5d24ed7e",
+                  "reportFrequency": "MONTHLY",
+                  "lastProcessed": "1651363200"
+                }
+      }
+    }
+  }
 }
