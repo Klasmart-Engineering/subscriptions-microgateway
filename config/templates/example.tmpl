@@ -44,4 +44,28 @@
       }
     }
   }
+},
+{
+  "endpoint": "/stub",
+  "headers_to_pass": ["Content-Length"],
+  "backend": [
+    {
+      "host": ["http://ignore.this.endpoint"],
+      "url_pattern": ""
+    }
+  ],
+  "extra_config": {
+    "github.com/devopsfaith/krakend/proxy": {
+      "static": {
+        "strategy": "always",
+        "data": {
+          "stubbed": {
+              "id": 42,
+              "bar": "foobar",
+              "new_endpoint": true
+          }
+        }
+      }
+    }
+  }
 }
