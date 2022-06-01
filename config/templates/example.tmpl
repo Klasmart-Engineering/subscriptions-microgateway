@@ -1,28 +1,4 @@
 {
-    "endpoint": "/example/{id}",
-    "method": "GET",
-    "output_encoding": "json",
-    "backend": [
-        {
-            "method": "GET",
-            "host": ["https://jsonplaceholder.typicode.com"],
-            "url_pattern": "/users/{id}"
-        }
-    ]
-},
-{
-    "endpoint": "/example",
-    "method": "POST",
-    "output_encoding": "json",
-    "backend": [
-        {
-            "method": "POST",
-            "host": ["https://jsonplaceholder.typicode.com"],
-            "url_pattern": "/users"
-        }
-    ]
-},
-{
   "endpoint": "/{accountID}/usage",
   "method": "GET",
   "headers_to_pass": ["Content-Length"],
@@ -61,7 +37,7 @@
   }
 },
 {
-  "endpoint": "/{accountID}/activate",
+  "endpoint": "/{accountID}",
   "method": "PUT",
   "headers_to_pass": ["Content-Length"],
   "backend": [
@@ -75,29 +51,7 @@
       "static": {
         "strategy": "always",
         "data": {
-                  "Details": "Subscription successfully activated."
-                }
-      }
-    }
-  }
-},
-{
-  "endpoint": "/{accountID}/deactivate",
-  "method": "PUT",
-  "headers_to_pass": ["Content-Length"],
-  "backend": [
-    {
-      "host": ["http://stubbed.response"],
-      "url_pattern": ""
-    }
-  ],
-  "extra_config": {
-    "github.com/devopsfaith/krakend/proxy": {
-      "static": {
-        "strategy": "always",
-        "data": {
-                  "Details": "Subscription successfully deactivated."
-                }
+        }
       }
     }
   }
@@ -117,8 +71,7 @@
       "static": {
         "strategy": "always",
         "data": {
-                  "state": "Active",
-                  "subscriptionID": "4129efa2-4436-4e8c-8cf9-032d5d24ed7e",
+                  "state": "ACTIVE",
                   "reportFrequency": "MONTHLY",
                   "lastProcessed": "1651363200"
                 }
