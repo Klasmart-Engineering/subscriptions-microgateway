@@ -23,6 +23,29 @@
         "/__stats"
       ],
       "disable_access_log": true
+    },
+    "security/cors": {
+      "allow_origins": [
+        "*"
+      ],
+      "allow_methods": [
+        "DELETE",
+        "GET",
+        "HEAD",
+        "PATCH",
+        "POST",
+        "PUT"
+      ],
+      "expose_headers": [
+        "Content-Length",
+        "Content-Type"
+      ],
+      "allow_headers": [
+        "Accept-Language"
+      ],
+      "max_age": "12h",
+      "allow_credentials": false,
+      "debug": false
     }
   },
   "plugin": {
