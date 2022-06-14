@@ -1,5 +1,5 @@
 {
-  "endpoint": "/{accountID}/usage",
+  "endpoint": "/subscriptions/{subscriptionId}",
   "method": "GET",
   "headers_to_pass": ["Content-Length"],
   "backend": [
@@ -13,32 +13,18 @@
       "static": {
         "strategy": "always",
         "data": {
-                  "types": [
-                    {
-                      "typeName": "API Requests",
-                      "displayName": "Content API",
-                      "from": "1651406442",
-                      "to": "1653998462",
-                      "usageAmount": 6578,
-                      "validUsage": true
-                    },
-                    {
-                      "typeName": "API Requests",
-                      "displayName": "Web Portal",
-                      "from": "1651406442",
-                      "to": "1653998462",
-                      "usageAmount": 74,
-                      "validUsage": false
-                    }
-                  ]
+                  "subscription_id": "6e573aa2-e072-4ff5-98d8-8777df1502da",
+                  "account_id": "7a555c10-a427-4de1-b7e7-416c6d23e42e",
+                  "state": "active",
+                  "created_on": 1655196221
                 }
       }
     }
   }
 },
 {
-  "endpoint": "/{accountID}",
-  "method": "PUT",
+  "endpoint": "/subscriptions/{subscriptionId}",
+  "method": "PATCH",
   "headers_to_pass": ["Content-Length"],
   "backend": [
     {
@@ -57,7 +43,7 @@
   }
 },
 {
-  "endpoint": "/{accountID}/summary",
+  "endpoint": "/subscriptions/{subscriptionId}/usage-reports",
   "method": "GET",
   "headers_to_pass": ["Content-Length"],
   "backend": [
@@ -71,10 +57,68 @@
       "static": {
         "strategy": "always",
         "data": {
-                  "state": "ACTIVE",
-                  "reportFrequency": "MONTHLY",
-                  "lastProcessed": "1651363200"
+                  "reports": [
+                    {
+                      "id": "0e4ad93f-5d68-491f-b5cd-b95b81a99a64",
+                      "from": 1652520702,
+                      "to": 1655199102
+                    },
+                    {
+                      "id": "0e4ad93f-5d68-491f-b5cd-b95b81a99a64",
+                      "from": 1647250302,
+                      "to": 1649928702
+                    }
+                  ]
                 }
+      }
+    }
+  }
+},
+{
+  "endpoint": "/subscriptions/{subscriptionId}/usage-reports/{usageReportId}",
+  "method": "GET",
+  "headers_to_pass": ["Content-Length"],
+  "backend": [
+    {
+      "host": ["http://stubbed.response"],
+      "url_pattern": ""
+    }
+  ],
+  "extra_config": {
+    "github.com/devopsfaith/krakend/proxy": {
+      "static": {
+        "strategy": "always",
+        "data": {
+                  "id": "0e4ad93f-5d68-491f-b5cd-b95b81a99a64",
+                  "from": 1652520702,
+                  "to": 1655199102,
+                  "report_completed_at": 1655199102,
+                  "state": "ready",
+                  "products": {
+                    "Content API": 7854
+                  }
+                }
+      }
+    }
+  }
+},
+{
+  "endpoint": "/subscriptions/{subscriptionId}/usage-reports/{usageReportId}",
+  "method": "PATCH",
+  "headers_to_pass": ["Content-Length"],
+  "backend": [
+    {
+      "host": ["http://stubbed.response"],
+      "url_pattern": ""
+    }
+  ],
+  "extra_config": {
+    "github.com/devopsfaith/krakend/proxy": {
+      "static": {
+        "strategy": "always",
+        "data": {
+                  "state": "processing"
+        }
       }
     }
   }
