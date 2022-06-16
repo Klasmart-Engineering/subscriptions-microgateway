@@ -1,4 +1,14 @@
 {
+    "endpoint": "/subs-health",
+    "method": "GET",
+    "output_encoding": "json",
+    "backend": [{
+        "method": "GET",
+        "host": ["http://subscriptions"],
+        "url_pattern": "/healthcheck"
+    }]
+},
+{
   "endpoint": "/subscriptions/{subscriptionId}",
   "method": "GET",
   "headers_to_pass": ["Content-Length"],
