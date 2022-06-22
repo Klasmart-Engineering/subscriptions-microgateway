@@ -1,0 +1,3 @@
+[submodule "plugins/access-log-plugin"]
+	path = plugins/access-log-plugin
+	url = git@github.com:KL-Engineering/access-log-plugin.git
