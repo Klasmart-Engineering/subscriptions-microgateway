@@ -65,7 +65,8 @@
           "/stub",
           "/subscriptions/*",
           "/subscriptions/*/usage-reports",
-          "/subscriptions/*/usage-reports/*"
+          "/subscriptions/*/usage-reports/*",
+          "/kidsloop"
         ]
       }
     }
