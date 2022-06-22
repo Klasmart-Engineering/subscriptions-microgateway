@@ -38,19 +38,11 @@
   "headers_to_pass": ["Content-Length"],
   "backend": [
     {
-      "host": ["http://stubbed.response"],
-      "url_pattern": ""
+        "method": "GET",
+        "host": ["http://subscriptions"],
+        "url_pattern": "/subscriptions/{subscriptionId}"
     }
-  ],
-  "extra_config": {
-    "github.com/devopsfaith/krakend/proxy": {
-      "static": {
-        "strategy": "always",
-        "data": {
-        }
-      }
-    }
-  }
+  ]
 },
 {
   "endpoint": "/subscriptions/{subscriptionId}/usage-reports",
@@ -58,31 +50,11 @@
   "headers_to_pass": ["Content-Length"],
   "backend": [
     {
-      "host": ["http://stubbed.response"],
-      "url_pattern": ""
+        "method": "GET",
+        "host": ["http://subscriptions"],
+        "url_pattern": "/subscriptions/{subscriptionId}/usage-reports"
     }
-  ],
-  "extra_config": {
-    "github.com/devopsfaith/krakend/proxy": {
-      "static": {
-        "strategy": "always",
-        "data": {
-                  "reports": [
-                    {
-                      "id": "0e4ad93f-5d68-491f-b5cd-b95b81a99a64",
-                      "from": 1652520702,
-                      "to": 1655199102
-                    },
-                    {
-                      "id": "d54af77c-f96f-4e15-9769-6c58b5e74d08",
-                      "from": 1647250302,
-                      "to": 1649928702
-                    }
-                  ]
-                }
-      }
-    }
-  }
+  ]
 },
 {
   "endpoint": "/subscriptions/{subscriptionId}/usage-reports/{usageReportId}",
@@ -90,27 +62,11 @@
   "headers_to_pass": ["Content-Length"],
   "backend": [
     {
-      "host": ["http://stubbed.response"],
-      "url_pattern": ""
+        "method": "GET",
+        "host": ["http://subscriptions"],
+        "url_pattern": "/subscriptions/{subscriptionId}/usage-reports/{usageReportId}"
     }
-  ],
-  "extra_config": {
-    "github.com/devopsfaith/krakend/proxy": {
-      "static": {
-        "strategy": "always",
-        "data": {
-                  "id": "0e4ad93f-5d68-491f-b5cd-b95b81a99a64",
-                  "from": 1652520702,
-                  "to": 1655199102,
-                  "report_completed_at": 1655199102,
-                  "state": "ready",
-                  "products": {
-                    "Content API": 7854
-                  }
-                }
-      }
-    }
-  }
+  ]
 },
 {
   "endpoint": "/subscriptions/{subscriptionId}/usage-reports/{usageReportId}",
@@ -118,42 +74,9 @@
   "headers_to_pass": ["Content-Length"],
   "backend": [
     {
-      "host": ["http://stubbed.response"],
-      "url_pattern": ""
+        "method": "PATCH",
+        "host": ["http://subscriptions"],
+        "url_pattern": "/subscriptions/{subscriptionId}/usage-reports/{usageReportId}"
     }
-  ],
-  "extra_config": {
-    "github.com/devopsfaith/krakend/proxy": {
-      "static": {
-        "strategy": "always",
-        "data": {
-                  "state": "processing"
-        }
-      }
-    }
-  }
-},
-{
-  "endpoint": "/stub",
-  "headers_to_pass": ["Content-Length"],
-  "backend": [
-    {
-      "host": ["http://ignore.this.endpoint"],
-      "url_pattern": ""
-    }
-  ],
-  "extra_config": {
-    "github.com/devopsfaith/krakend/proxy": {
-      "static": {
-        "strategy": "always",
-        "data": {
-          "stubbed": {
-              "id": 42,
-              "bar": "foobar",
-              "new_endpoint": true
-          }
-        }
-      }
-    }
-  }
+  ]
 }
