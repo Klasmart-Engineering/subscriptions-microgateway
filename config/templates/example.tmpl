@@ -9,6 +9,16 @@
     }]
 },
 {
+    "endpoint": "/test-athena",
+    "method": "GET",
+    "output_encoding": "json",
+    "backend": [{
+        "method": "GET",
+        "host": ["http://subscriptions"],
+        "url_pattern": "/test-athena"
+    }]
+},
+{
   "endpoint": "/subscriptions/{subscriptionId}",
   "method": "GET",
   "headers_to_pass": ["Content-Length"],
