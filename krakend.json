@@ -81,6 +81,6 @@
   "name": "subscriptions-microgateway",
   "port": 8080,
   "endpoints": [
-    {{ template "example.tmpl" . }}
+    {{ template "routes.tmpl" . }}
   ]
 }
