@@ -1,0 +1,85 @@
+{
+  "endpoint": "/subscriptions",
+  "method": "GET",
+  "headers_to_pass": ["Content-Length", "Authorization", "X-Api-Key"],
+  "input_query_strings": ["account_id"],
+  "backend": [
+    {
+        "method": "GET",
+        "host": ["http://subscriptions"],
+        "url_pattern": "/subscriptions"
+    }
+  ]
+},
+{
+  "endpoint": "/subscriptions/{subscriptionId}",
+  "method": "GET",
+  "headers_to_pass": ["Content-Length", "Authorization", "X-Api-Key"],
+  "backend": [
+    {
+        "method": "GET",
+        "host": ["http://subscriptions"],
+        "url_pattern": "/subscriptions/{subscriptionId}"
+    }
+  ]
+},
+{
+  "endpoint": "/subscriptions/{subscriptionId}",
+  "method": "PATCH",
+  "headers_to_pass": ["Content-Length", "Authorization"],
+  "backend": [
+    {
+        "method": "PATCH",
+        "host": ["http://subscriptions"],
+        "url_pattern": "/subscriptions/{subscriptionId}"
+    }
+  ]
+},
+{
+  "endpoint": "/subscriptions/{subscriptionId}/usage-reports",
+  "method": "GET",
+  "headers_to_pass": ["Content-Length", "Authorization"],
+  "backend": [
+    {
+        "method": "GET",
+        "host": ["http://subscriptions"],
+        "url_pattern": "/subscriptions/{subscriptionId}/usage-reports"
+    }
+  ]
+},
+{
+  "endpoint": "/subscriptions/{subscriptionId}/usage-reports/{usageReportId}",
+  "method": "GET",
+  "headers_to_pass": ["Content-Length", "Authorization"],
+  "backend": [
+    {
+        "method": "GET",
+        "host": ["http://subscriptions"],
+        "url_pattern": "/subscriptions/{subscriptionId}/usage-reports/{usageReportId}"
+    }
+  ]
+},
+{
+  "endpoint": "/subscriptions/{subscriptionId}/usage-reports/{usageReportId}",
+  "method": "PATCH",
+  "headers_to_pass": ["Content-Length", "Authorization"],
+  "backend": [
+    {
+        "method": "PATCH",
+        "host": ["http://subscriptions"],
+        "url_pattern": "/subscriptions/{subscriptionId}/usage-reports/{usageReportId}"
+    }
+  ]
+},
+{
+  "endpoint": "/kidsloop",
+  "output_encoding": "no-op",
+  "input_headers": ["*"],
+  "backend": [
+    {
+      "host": ["https://kidsloop.net"],
+      "url_pattern": "/wp-content/uploads/2022/01/bg_58_subscreens.png",
+      "encoding": "no-op"
+    }
+  ]
+}
