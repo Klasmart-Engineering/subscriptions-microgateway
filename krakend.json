@@ -81,6 +81,127 @@
   "name": "subscriptions-microgateway",
   "port": 8080,
   "endpoints": [
-    {{ template "routes.tmpl" . }}
+    {
+      "endpoint": "/subs-health",
+      "method": "GET",
+      "output_encoding": "json",
+      "backend": [{
+        "method": "GET",
+        "encoding": "no-op",
+        "host": ["http://subscriptions"],
+        "url_pattern": "/healthcheck"
+      }]
+    },
+    {
+      "endpoint": "/subscriptions",
+      "output_encoding": "no-op",
+      "method": "POST",
+      "input_headers": ["Content-Length", "Authorization", "X-Api-Key"],
+      "backend": [
+        {
+          "method": "POST",
+          "encoding": "no-op",
+          "host": ["http://subscriptions"],
+          "url_pattern": "/subscriptions"
+        }
+      ]
+    },
+    {
+      "endpoint": "/subscriptions",
+      "output_encoding": "no-op",
+      "method": "GET",
+      "input_headers": ["Content-Length", "Authorization", "X-Api-Key"],
+      "input_query_strings": ["account_id"],
+      "backend": [
+        {
+          "method": "GET",
+          "encoding": "no-op"
+          "host": ["http://subscriptions"],
+          "url_pattern": "/subscriptions"
+        }
+      ]
+    },
+    {
+      "endpoint": "/subscriptions/{subscriptionId}",
+      "output_encoding": "no-op",
+      "method": "GET",
+      "input_headers": ["Content-Length", "Authorization", "X-Api-Key"],
+      "backend": [
+        {
+          "method": "GET",
+          "encoding": "no-op",
+          "host": ["http://subscriptions"],
+          "url_pattern": "/subscriptions/{subscriptionId}"
+        }
+      ]
+    },
+    {
+      "endpoint": "/subscriptions/{subscriptionId}",
+      "output_encoding": "no-op",
+      "method": "PATCH",
+      "input_headers": ["Content-Length", "Authorization"],
+      "backend": [
+        {
+          "method": "PATCH",
+          "encoding": "no-op",
+          "host": ["http://subscriptions"],
+          "url_pattern": "/subscriptions/{subscriptionId}"
+        }
+      ]
+    },
+    {
+      "endpoint": "/subscriptions/{subscriptionId}/usage-reports",
+      "output_encoding": "no-op",
+      "method": "GET",
+      "input_headers": ["Content-Length", "Authorization"],
+      "backend": [
+        {
+          "method": "GET",
+          "encoding": "no-op",
+          "host": ["http://subscriptions"],
+          "url_pattern": "/subscriptions/{subscriptionId}/usage-reports"
+        }
+      ]
+    },
+    {
+      "endpoint": "/subscriptions/{subscriptionId}/usage-reports/{usageReportId}",
+      "output_encoding": "no-op",
+      "method": "GET",
+      "input_headers": ["Content-Length", "Authorization"],
+      "backend": [
+        {
+          "method": "GET",
+          "encoding": "no-op",
+          "host": ["http://subscriptions"],
+          "url_pattern": "/subscriptions/{subscriptionId}/usage-reports/{usageReportId}"
+        }
+      ]
+    },
+    {
+      "endpoint": "/subscriptions/{subscriptionId}/usage-reports/{usageReportId}",
+      "output_encoding": "no-op",
+      "method": "PATCH",
+      "input_headers": ["Content-Length", "Authorization"],
+      "backend": [
+        {
+          "method": "PATCH",
+          "encoding": "no-op",
+          "host": ["http://subscriptions"],
+          "url_pattern": "/subscriptions/{subscriptionId}/usage-reports/{usageReportId}"
+        }
+      ]
+    },
+    {
+      "endpoint": "/kidsloop",
+      "output_encoding": "no-op",
+      "input_headers": ["*"],
+      "backend": [
+        {
+          "host": ["https://kidsloop.net"],
+          "url_pattern": "/wp-content/uploads/2022/01/bg_58_subscreens.png",
+          "encoding": "no-op"
+        }
+      ]
+    }
   ]
 }
