@@ -115,7 +115,7 @@
       "backend": [
         {
           "method": "GET",
-          "encoding": "no-op"
+          "encoding": "no-op",
           "host": ["http://subscriptions"],
           "url_pattern": "/subscriptions"
         }
