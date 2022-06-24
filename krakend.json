@@ -46,6 +46,29 @@
       "max_age": "12h",
       "allow_credentials": false,
       "debug": false
+    },
+    "plugin/http-server": {
+      "name": [
+        "access-log"
+      ],
+      "access-log": {
+        "product_name": "Subs Gateway Test",
+        "buffer_size": 1000,
+        "firehose_batch_size": 500,
+        "firehose_send_early_timeout_ms": 60000,
+        "use_aws_default_credentials": true,
+        "aws_region": "eu-west-2",
+        "delivery_stream_name": "subscriptions-uk-apifactory-api-usage",
+        "ignore_paths": [
+          "/__health",
+          "/__stats",
+          "/stub",
+          "/subscriptions/*",
+          "/subscriptions/*/usage-reports",
+          "/subscriptions/*/usage-reports/*",
+          "/kidsloop"
+        ]
+      }
     }
   },
   "plugin": {
