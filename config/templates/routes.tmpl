@@ -10,6 +10,18 @@
 },
 {
   "endpoint": "/subscriptions",
+  "method": "POST",
+  "headers_to_pass": ["Content-Length", "Authorization", "X-Api-Key"],
+  "backend": [
+    {
+        "method": "POST",
+        "host": ["http://subscriptions"],
+        "url_pattern": "/subscriptions"
+    }
+  ]
+},
+{
+  "endpoint": "/subscriptions",
   "method": "GET",
   "headers_to_pass": ["Content-Length", "Authorization", "X-Api-Key"],
   "input_query_strings": ["account_id"],
