@@ -41,7 +41,8 @@
         "Content-Type"
       ],
       "allow_headers": [
-        "Accept-Language"
+        "Accept-Language",
+        "Authorization"
       ],
       "max_age": "12h",
       "allow_credentials": false,
