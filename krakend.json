@@ -42,7 +42,10 @@
       ],
       "allow_headers": [
         "Accept-Language",
-        "Authorization"
+        "Authorization",
+        "Origin",
+        "Content-Type",
+        "Accept"
       ],
       "max_age": "12h",
       "allow_credentials": false,
